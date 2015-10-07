@@ -12,6 +12,12 @@ namespace Snake
         public int y;
         public char c;
 
+        public Point(int x, int y, char c)
+        {
+            this.x = x;
+            this.y = y;
+            this.c = c;
+        }
 
         public void Show()
         {
