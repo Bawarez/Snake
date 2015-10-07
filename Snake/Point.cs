@@ -15,8 +15,8 @@ namespace Snake
 
         public void Show()
         {
-            Console.SetCursorPosition(this.x, this.y);
-            Console.Write(this.c);
+            Console.SetCursorPosition(x, y);
+            Console.Write(c);
         }
     }
 }
