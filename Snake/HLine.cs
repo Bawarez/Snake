@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class HLine
+    class HLine: Figure
     {
-        List<Point> points;
+        
           
         public HLine(int xLeft, int xRight, int y, char c)
         {
@@ -17,14 +17,6 @@ namespace Snake
             {
                 Point p = new Point(x,y,c);
                 points.Add(p);
-            }
-        }
-
-        public void Draw()
-        {
-            foreach(Point p in points)
-            {
-                p.Show();
             }
         }
     }
