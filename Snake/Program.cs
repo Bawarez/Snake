@@ -10,20 +10,14 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            int x = 1;
-            int y = 3;
-            Show(x, y, '*');
-            x = 4;
-            y = 6;
-            Show(x, y, '#');
+            Point p1 = new Point(3,6,'*');
+            Point p2 = new Point(6,3,'#');
+            p1.Show();
+            p2.Show();
             Console.ReadLine();
 
         }
 
-        static void Show(int x, int y, char c)
-        {
-            Console.SetCursorPosition(x,y);
-            Console.Write(c);
-        }
+    
     }
 }
