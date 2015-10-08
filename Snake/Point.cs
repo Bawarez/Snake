@@ -19,6 +19,25 @@ namespace Snake
             this.c = c;
         }
 
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            c = p.c;
+        }
+
+        public void Move(int i, Direction d)
+        {
+            if (d == Direction.right)
+                x += i;
+            if (d == Direction.left)
+                x -= i;
+            if (d == Direction.up)
+                y -= i;
+            if (d == Direction.down)
+                y += i;
+        }
+
         public void Show()
         {
             Console.SetCursorPosition(x, y);
