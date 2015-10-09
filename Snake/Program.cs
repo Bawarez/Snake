@@ -11,20 +11,31 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            HLine line = new HLine(2,8,4,'*');
-            line.Draw();
-            VLine line1 = new VLine(2, 8, 4, '*');
-            line1.Draw();
+            HLine tline = new HLine(0, 78, 0, '+');
+            HLine bline = new HLine(0, 78, 24, '+');
+            VLine lline = new VLine(0, 24, 0, '+');
+            VLine rline = new VLine(0, 24, 78, '+');
+            tline.Draw();
+            rline.Draw();
+            bline.Draw();
+            lline.Draw();
 
-            Point p = new Point(10, 10, '*');
-            Snake snake = new Snake(p,6,Direction.right);
+
+            Point tale = new Point(2, 12, '*');
+            Snake snake = new Snake(tale,7,Direction.right);
             snake.Draw();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Console.ReadLine();
 
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+
+                Thread.Sleep(150);
+                snake.Move();
+            }
         }
 
     

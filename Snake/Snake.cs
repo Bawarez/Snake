@@ -21,15 +21,30 @@ namespace Snake
             }
         }
 
-        public void Move()
+        internal void Move()
         {
             Point t = points.First();
             points.Remove(t);
-            Point h = points.Last();
-            h.Move(1,d);
+
+            Point h = new Point(points.Last());
+            h.Move(1, d);
             points.Add(h);
+
             t.Clear();
             h.Show();
+        }
+
+
+        public void HandleKey(ConsoleKey key)
+        {
+            if (key == ConsoleKey.RightArrow)
+                d = Direction.right;
+            else if (key == ConsoleKey.LeftArrow)
+                d = Direction.left;
+            else if (key == ConsoleKey.UpArrow)
+                d = Direction.up;
+            else if (key == ConsoleKey.DownArrow)
+                d = Direction.down;
         }
     }
 }
