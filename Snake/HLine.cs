@@ -19,5 +19,17 @@ namespace Snake
                 points.Add(p);
             }
         }
+
+        public override void Draw()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            foreach (Point p in points)
+            {
+                p.Show();
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
 }
