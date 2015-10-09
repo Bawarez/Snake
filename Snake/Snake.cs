@@ -26,14 +26,19 @@ namespace Snake
             Point t = points.First();
             points.Remove(t);
 
-            Point h = new Point(points.Last());
-            h.Move(1, d);
+            Point h = NextPoint();
             points.Add(h);
 
             t.Clear();
             h.Show();
         }
 
+        public Point NextPoint()
+        {
+            Point p = new Point(points.Last());
+            p.Move(1, d);
+            return p;
+        }
 
         public void HandleKey(ConsoleKey key)
         {
@@ -45,6 +50,20 @@ namespace Snake
                 d = Direction.up;
             else if (key == ConsoleKey.DownArrow)
                 d = Direction.down;
+        }
+
+        internal bool Eat(Point food)
+        {
+            Point h = NextPoint();
+            if (h.IsHit(food))
+            {
+                food.c = h.c;
+                points.Add(food);
+                return true;
+            }
+            else
+                return false;
+            
         }
     }
 }
