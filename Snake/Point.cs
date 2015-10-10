@@ -29,13 +29,13 @@ namespace Snake
         public void Move(int i, Direction d)
         {
             if (d == Direction.right)
-                x += i;
+                x = x + i;
             if (d == Direction.left)
-                x -= i;
+                x = x - i;
             if (d == Direction.up)
-                y -= i;
+                y = y - i;
             if (d == Direction.down)
-                y += i;
+                y = y + i;
         }
 
         public void Show()

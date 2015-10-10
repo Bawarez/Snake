@@ -26,7 +26,6 @@ namespace Snake
         {
             int x = rnd.Next(2,MapW-2);
             int y = rnd.Next(2,MapH-2);
-            if (y % 2 == 1) ++y;
             return new Point(x, y, c);
         }
 

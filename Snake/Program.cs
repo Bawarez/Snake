@@ -23,23 +23,28 @@ namespace Snake
             Point food = foodCreator.CreateFood();
             food.Show();
 
+            Console.SetCursorPosition(0, 0);
+            Console.Write("Score: 0");
+            int s = 0;
 
             while (true)
             {
-                if (walls.isHit(snake.NextPoint()) || snake.IsHit())
+                if (walls.isHit(snake.points.Last()) || snake.IsHit())
+                {
                     break;
+                }
+                   
 
                 if (snake.Eat(food))
                 {
+                    s++;
+                    Console.SetCursorPosition(0, 0);
+                    Console.Write("Score: "+s);
+                    Thread.Sleep(10);
                     food = foodCreator.CreateFood();
                     food.Show();
                 }
-                else
-                {
-                    snake.Move();
-                }
-                Thread.Sleep(150);
-
+               
 
                 if (Console.KeyAvailable)
                 {
@@ -47,11 +52,13 @@ namespace Snake
                     snake.HandleKey(key.Key);
                 }
 
-                Thread.Sleep(100);
+                Thread.Sleep(150);
                 snake.Move();
             }
+            Console.SetCursorPosition(30, 12);
+            Console.WriteLine("OLOLO!!!!!!!!!!!!!!!!!");
+            Console.ReadLine();
         }
-
-    
+        
     }
 }
