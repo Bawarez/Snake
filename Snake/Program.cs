@@ -11,15 +11,9 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            HLine tline = new HLine(0, 78, 0, '+');
-            HLine bline = new HLine(0, 78, 24, '+');
-            VLine lline = new VLine(0, 24, 0, '+');
-            VLine rline = new VLine(0, 24, 78, '+');
-            tline.Draw();
-            rline.Draw();
-            bline.Draw();
-            lline.Draw();
 
+            Walls walls = new Walls(80,25);
+            walls.Draw();
 
             Point tale = new Point(2, 12, '*');
             Snake snake = new Snake(tale,7,Direction.right);
@@ -32,6 +26,9 @@ namespace Snake
 
             while (true)
             {
+                if (walls.isHit(snake.NextPoint()) || snake.IsHit())
+                    break;
+
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();

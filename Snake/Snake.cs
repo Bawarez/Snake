@@ -63,7 +63,17 @@ namespace Snake
             }
             else
                 return false;
-            
+        }
+
+        internal bool IsHit()
+        {
+            Point h = new Point(points.Last());
+            for (int i=0; i<points.Count-2; ++i)
+            {
+                if (h.IsHit(points[i]))
+                    return true;
+            }
+            return false;
         }
     }
 }
